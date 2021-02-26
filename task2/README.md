@@ -18,14 +18,15 @@ _Пример: (a and b) or not (c xor (a or not b))_
 Построим грамматику:
 
 ```haskell
-E  -> T E'
-E' -> or T E'
-E' -> eps
-T  -> F T'
-T' -> and F T'
-T' -> eps
-F  -> var
-F  -> ( E )
+E -> T
+E -> E or T
+E -> E xor T
+T -> F
+T -> T and F
+F -> not U
+F -> U
+U -> var
+U -> ( E )
 ```
 
 Эта грамматика не принадлежит классу LL(1), т.к. в ней есть левая рекурсия. Устраним ее и получим грамматику:

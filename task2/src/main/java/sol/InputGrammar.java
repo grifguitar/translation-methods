@@ -19,21 +19,6 @@ public enum InputGrammar {
             U  -> \\var\s
             U  -> ( E )\s
             """);
-//    GRAMMAR1("""
-//            E  -> T E'\s
-//            E' -> or T E'\s
-//            E' -> \\eps\s
-//            T  -> F T'\s
-//            T' -> and F T'\s
-//            T' -> \\eps\s
-//            F  -> \\var\s
-//            F  -> ( E )\s
-//            """);
-//    GRAMMAR1("""
-//            S  -> ( S' ) S'\s
-//            S' -> S\s
-//            S' -> \\eps\s
-//            """);
 
     //fields:
 
