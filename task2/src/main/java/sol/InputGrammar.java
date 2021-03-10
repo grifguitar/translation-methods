@@ -8,16 +8,16 @@ import java.text.ParseException;
 public enum InputGrammar {
     GRAMMAR1("""
             E  -> T E'\s
-            E' -> or T E'\s
-            E' -> xor T E'\s
-            E' -> \\eps\s
+            E' -> OR T E'\s
+            E' -> XOR T E'\s
+            E' -> EPS\s
             T  -> F T'\s
-            T' -> and F T'\s
-            T' -> \\eps\s
-            F  -> not U\s
+            T' -> AND F T'\s
+            T' -> EPS\s
+            F  -> NOT U\s
             F  -> U\s
-            U  -> \\var\s
-            U  -> ( E )\s
+            U  -> VAR\s
+            U  -> LPAREN E RPAREN\s
             """);
 
     //fields:

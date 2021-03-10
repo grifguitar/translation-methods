@@ -40,8 +40,7 @@ public class Rule {
             }
             boolean isTerminal = false;
             for (Terminal t : Terminal.values()) {
-                if (t.getSymbol() != null &&
-                        t.getSymbol().equals(currPart)) {
+                if (t.name().equals(currPart)) {
                     this.toUnits.add(t);
                     isTerminal = true;
                     break;
