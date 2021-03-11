@@ -56,29 +56,29 @@ public class LexicalAnalyzer {
 
     private Token checkOneCharToken() throws ParseException {
         String currentString = String.valueOf((char) currentChar);
-        if (Terminal.LPAREN.isEquals(currentString)) {
-            return new Token(Terminal.LPAREN, null);
-        } else if (Terminal.RPAREN.isEquals(currentString)) {
-            return new Token(Terminal.RPAREN, null);
-        } else if (currentChar == -1) {
+        for (Terminal t : Terminal.values) {
+            if (t.isEquals(currentString)) {
+                return new Token(t, null);
+            }
+        }
+        if (currentChar == -1) {
             return new Token(Terminal.DOLLAR, null);
         }
         return null;
     }
 
     private Token checkManyCharToken(String currentString) throws ParseException {
-        if (Terminal.AND.isEquals(currentString)) {
-            return new Token(Terminal.AND, null);
-        } else if (Terminal.OR.isEquals(currentString)) {
-            return new Token(Terminal.OR, null);
-        } else if (Terminal.XOR.isEquals(currentString)) {
-            return new Token(Terminal.XOR, null);
-        } else if (Terminal.NOT.isEquals(currentString)) {
-            return new Token(Terminal.NOT, null);
-        } else if (currentString.length() == 1 &&
-                ((currentString.charAt(0) >= 'a' && currentString.charAt(0) <= 'z') ||
-                        (currentString.charAt(0) >= 'A' && currentString.charAt(0) <= 'Z'))) {
-            return new Token(Terminal.VAR, currentString);
+        for (Terminal t : Terminal.values) {
+            if (t.isEquals(currentString)) {
+                return new Token(t, null);
+            } else {
+                if (t.getSymbol() != null && t.getSymbol().startsWith("\\regex")) {
+                    String regex = t.getSymbol().substring(6);
+                    if (currentString.matches(regex)) {
+                        return new Token(t, currentString);
+                    }
+                }
+            }
         }
         return null;
     }

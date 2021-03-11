@@ -1,0 +1,21 @@
+-----TERMINAL-----
+LPAREN:'('
+RPAREN:')'
+AND:'and'
+OR:'or'
+XOR:'xor'
+NOT:'not'
+VAR:'\regex[a-z]'
+-----GRAMMAR-----
+E  -> T E'
+E' -> OR T E'
+E' -> XOR T E'
+E' -> EPS
+T  -> F T'
+T' -> AND F T'
+T' -> EPS
+F  -> NOT U
+F  -> U
+U  -> VAR
+U  -> LPAREN E RPAREN
+-----

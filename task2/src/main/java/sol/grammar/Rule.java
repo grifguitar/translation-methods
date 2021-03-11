@@ -39,8 +39,8 @@ public class Rule {
                 continue;
             }
             boolean isTerminal = false;
-            for (Terminal t : Terminal.values()) {
-                if (t.name().equals(currPart)) {
+            for (Terminal t : Terminal.values) {
+                if (t.getName().equals(currPart)) {
                     this.toUnits.add(t);
                     isTerminal = true;
                     break;
