@@ -6,6 +6,13 @@ OR:'or'
 XOR:'xor'
 NOT:'not'
 VAR:'\regex[a-z]'
+-----STATE-----
+E  {val:Integer:synth}
+E' {val:Integer:synth, acc:Integer:inherit}
+T  {val:Integer:synth}
+T' {val:Integer:synth, acc:Integer:inherit}
+F  {val:Integer:synth}
+U  {val:Integer:synth}
 -----GRAMMAR-----
 E  -> T E'
 E' -> OR T E'
