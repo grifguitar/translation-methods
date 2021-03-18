@@ -91,25 +91,6 @@ neg :: Integer -> Integer
 Integer x = firstArg;
 Integer result = -x;
 ;
-&& :: Boolean -> Boolean -> Boolean
-Boolean x = firstArg;
-Boolean y = secondArg;
-Boolean result = x && y;
-;
-|| :: Boolean -> Boolean -> Boolean
-Boolean x = firstArg;
-Boolean y = secondArg;
-Boolean result = x || y;
-;
-^ :: Boolean -> Boolean -> Boolean
-Boolean x = firstArg;
-Boolean y = secondArg;
-Boolean result = x ^ y;
-;
-! :: Boolean -> Boolean
-Boolean x = firstArg;
-Boolean result = !x;
-;
 -----
 ```
 
